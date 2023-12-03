@@ -1,11 +1,12 @@
 const tweeter = Tweeter()
 const renderer = Renderer()
+const input = $("#input")
 
 const post = function(){
-    const postText = $("#input").val()
+    const postText = input.val()
     tweeter.addPost(postText)
     renderer.renderPosts(tweeter.getPosts())
-    $('#input').val('')
+    input.val('')
 }
 
 $("#posts").on("click", ".delete", function(){

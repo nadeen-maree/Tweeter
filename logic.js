@@ -1,8 +1,8 @@
-const INITIAL_POST_ID = 3
+const INITIAL_POST_ID = posts.length
 const INITIAL_COMMENT_ID = 7
 const NOT_EXIST = -1
-const FIRST_LETTER_IN_POST_ID = "p"
-const FIRST_LETTER_IN_COMMENT_ID = "c"
+const POST_IDENTEFIER = "p"
+const COMMENT_IDENTEFIER = "c"
 const NUM_INDEXS_TO_SPLICE = 1
 
 const Tweeter = function() {
@@ -17,7 +17,7 @@ const Tweeter = function() {
     const addPost = function(text){
         const newPost = {
             text: text,
-            id: FIRST_LETTER_IN_POST_ID+postIdCounter,
+            id: POST_IDENTEFIER+postIdCounter,
             comments: []
         }
         _posts.push(newPost)
@@ -36,9 +36,9 @@ const Tweeter = function() {
     const addComment = function(text, postID){
         const postIndex = _posts.findIndex(post => post.id === postID)
 
-        if (postIndex !== NOT_EXIST) {
+        if (postIndex !== NOT_EXIST)  {
             const newComment = {
-                id: FIRST_LETTER_IN_COMMENT_ID+commentIdCounter,
+                id: COMMENT_IDENTEFIER+commentIdCounter,
                 text: text
             }
 
@@ -56,10 +56,10 @@ const Tweeter = function() {
     }
 
     return{
-        getPosts: getPosts,
-        addPost: addPost,
-        removePost: removePost,
-        addComment: addComment,
-        removeComment: removeComment
+        getPosts,
+        addPost,
+        removePost,
+        addComment,
+        removeComment
     }
 }
